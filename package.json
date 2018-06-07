@@ -1,0 +1,25 @@
+{
+  "name": "srir-project",
+  "version": "1.0.0",
+  "description": "Parallel and distributed programming project at AGH-UST",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZooMic/srir-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZooMic/srir-project/issues"
+  },
+  "homepage": "https://github.com/ZooMic/srir-project#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  }
+}
