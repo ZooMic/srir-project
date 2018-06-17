@@ -49,12 +49,13 @@ describe('POST /task', () => {
             });
     });
 
-    it('Should return "Hello World!"', done => {
-        const task = "result = 'Hello World!';";
+    it('Should return supplied data = "Hello World!"', done => {
+        const data = 'Hello World!';
+        const task = "result = data;";
 
         chai.request(server)
             .post('/task')
-            .send({ task })
+            .send({ task, data })
             .end((err, res) => {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
