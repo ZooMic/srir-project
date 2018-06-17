@@ -1,22 +1,19 @@
 const request = require('request');
 const fs = require('fs');
 
- /**
- * Represents a file to read.
- * @method
- * @name readFile
- * @param {string} path - The file to read.
- * @param {string} encode - Represents unicode standard.
+/**
+ * Tries to open and read task file referenced by file path
+ * @param {string} filePath - path to task file
+ * @returns {string} file
  */
 const readFile = filePath => fs.readFileSync(filePath, 'utf8');
 
- /**
- * Send method.
- * @method
- * @name sendFile
- * @param {string} url
- * @param {object} file - The task file
- * @param {integer} data - The data to send to the task
+/**
+ * Sends task file and task data via HTTP POST method
+ * @param {string} url - url to the endpoint
+ * @param {string} file - task file (parsed as a string/JSON)
+ * @param {object} data - task data
+ * @returns {Promise<any>}
  */
 const sendFile = (url, file, data) =>
     new Promise((resolve, reject) => {
