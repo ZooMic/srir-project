@@ -4,7 +4,7 @@
   "description": "Parallel and distributed programming project at AGH-UST",
   "main": "index.js",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "node ./src/server/server.js",
     "test": "mocha \"./test/*.test.js\""
   },
   "repository": {
@@ -25,6 +25,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "mock-require": "^3.0.2"
   }
 }
