@@ -64,4 +64,21 @@ describe('POST /task', () => {
                 done();
             });
     });
+
+    it('Should return "Error - forbidden console"', done => {
+        const task = "console.log('Hello World!');";
+
+        chai.request(server)
+            .post('/task')
+            .send({ task })
+            .end((err, res) => {
+                expect(err).to.be.null;
+                expect(res).to.have.status(400);
+
+                expect(res.body).to.deep.equal({result: 'Error: There is forbidden (console) word in your code at position (0).'});
+
+                done();
+            });
+    });
+
 });
