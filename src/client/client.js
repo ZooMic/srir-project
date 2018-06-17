@@ -8,7 +8,11 @@ const { readFile, sendFile } = require('./client.service');
  */
 
 let args = parseArgs();
-if (!args) process.exit(1);
+if (!args) {
+    console.log('Invalid arguments! \nUsage: \n node client.js [file_path] [data]');
+    console.log('\nExample: \n node client.js input.js fibonacciNumber 16');
+    process.exit(1);
+}
 
 const file = readFile(args.filePath);
 
