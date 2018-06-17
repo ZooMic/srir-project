@@ -1,3 +1,9 @@
+/**
+ * Parses command line arguments array,
+ * to retrieve file path to task file and data for task
+ * @param {array} args - command line arguments
+ * @returns {object}
+ */
 const parseArgs = (args = process.argv) => {
     if (args.length < 3) {
         return null;

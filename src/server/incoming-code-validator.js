@@ -19,6 +19,11 @@ const forbidden = [
     "task",
 ];
 
+/**
+ * Validates task code to ensure it does not contain potentially harmful instructions
+ * @param {string} code - supplied task code
+ * @returns {object}
+ */
 const incomingCodeValidator = (code) => {
     let result = null;
 

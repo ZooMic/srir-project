@@ -1,11 +1,13 @@
+/**
+ * @file
+ * Client instance performs following tasks: <br/>
+ * - read file ({@link readFile}),<br/>
+ * - send file ({@link sendFile}),<br/>
+ * - get results
+ */
+
 const parseArgs = require('./args-parser');
 const { readFile, sendFile } = require('./client.service');
-
-/**
- * 
- * Read file, send file, get results
- * 
- */
 
 let args = parseArgs();
 if (!args) {
