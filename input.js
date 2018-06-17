@@ -1,7 +1,7 @@
 /**
  * Idea is simple:
  *  - user can use its data by referring to data variable
- *  - user can return result by asigning value to the result variable
+ *  - user can return result by assigning value to the result variable
  */
 
 
@@ -13,7 +13,7 @@ const fibonacci = number => {
         b = t;
     }
     return b;
-}
+};
 
 const { fibonacciNumber } = data;
 const fibonacciResult = fibonacci(fibonacciNumber);
