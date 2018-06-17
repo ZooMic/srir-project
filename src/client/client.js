@@ -2,9 +2,7 @@ const parseArgs = require('./args-parser');
 const { readFile, sendFile } = require('./client.service');
 
 /**
- * 
  * Read file, send file, get results
- * 
  */
 
 let args = parseArgs();
@@ -13,6 +11,7 @@ if (!args) {
     console.log('\nExample: \n node client.js input.js fibonacciNumber 16');
     process.exit(1);
 }
+
 
 const file = readFile(args.filePath);
 
@@ -24,3 +23,4 @@ sendFile('http://localhost:8000/task', file, args.data)
 	}, error => {
         console.log('Error: ', error);
 	});
+	
