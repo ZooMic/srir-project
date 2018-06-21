@@ -30,6 +30,12 @@ const createDiff = () => {
             removed += r ? count : 0;
         });
 
+        if (added === 0 && removed === 0){
+            return {
+                msg: "Program is exactly the same as the last one executed on server"
+            }
+        }
+
         return {
             added,
             removed,
@@ -38,7 +44,7 @@ const createDiff = () => {
     }
 
     return {
-        msg: "nothing to compare",
+        msg: "Nothing to compare, it's the first code stored on server",
     };
 }
 
