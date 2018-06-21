@@ -1,6 +1,11 @@
 const fs = require('fs');
 const jsdiff = require('diff');
 
+/**
+ * Saves supplied string to an array and then to json file specified by archivePath parameter
+ * @param {string} code - supplied  code string
+ * @param {string} archivePath - path to file containing archived codes
+ */
 const archiveCode = (code, archivePath) => {
     const archivesFile = fs.readFileSync(archivePath, 'utf8');
     const archives = JSON.parse(archivesFile);
@@ -8,6 +13,11 @@ const archiveCode = (code, archivePath) => {
     fs.writeFileSync(archivePath, JSON.stringify(archives));
 }
 
+/**
+ * Creates comparison between two last codes in an array stored in json file specified by archivePath parameter
+ * @param {string} archivePath - path to file containing archived codes
+ * @returns {object}
+ */
 const createDiff = archivePath => {
     const archivesFile = fs.readFileSync(archivePath, 'utf8');
     
