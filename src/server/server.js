@@ -17,6 +17,8 @@ const createDiff = arch.createDiff;
 const app = express();
 const port = 8000;
 
+const archivePath = "./archives.json";
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -48,8 +50,8 @@ app.post('/task', (req, res) => {
 
 	if (success) {
 		const result = !!body && performTask(body);
-		archiveCode(task);
-		const comparison = createDiff();
+		archiveCode(task, archivePath);
+		const comparison = createDiff(archivePath);
 
 		res.status(200)
 			.json({ result, comparison });

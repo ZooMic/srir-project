@@ -1,16 +1,24 @@
 const fs = require('fs');
 const jsdiff = require('diff');
 
-const archivePath = "./archives.json";
-
-const archiveCode = code => {
+/**
+ * Saves supplied string to an array and then to json file specified by archivePath parameter
+ * @param {string} code - supplied  code string
+ * @param {string} archivePath - path to file containing archived codes
+ */
+const archiveCode = (code, archivePath) => {
     const archivesFile = fs.readFileSync(archivePath, 'utf8');
     const archives = JSON.parse(archivesFile);
     archives.push(code);
     fs.writeFileSync(archivePath, JSON.stringify(archives));
 }
 
-const createDiff = () => {
+/**
+ * Creates comparison between two last codes in an array stored in json file specified by archivePath parameter
+ * @param {string} archivePath - path to file containing archived codes
+ * @returns {object}
+ */
+const createDiff = archivePath => {
     const archivesFile = fs.readFileSync(archivePath, 'utf8');
     
     const archives = JSON.parse(archivesFile);
@@ -30,6 +38,12 @@ const createDiff = () => {
             removed += r ? count : 0;
         });
 
+        if (added === 0 && removed === 0){
+            return {
+                msg: "Program is exactly the same as the last one executed on server"
+            }
+        }
+
         return {
             added,
             removed,
@@ -38,7 +52,7 @@ const createDiff = () => {
     }
 
     return {
-        msg: "nothing to compare",
+        msg: "Nothing to compare, it's the first code stored on server",
     };
 }
 

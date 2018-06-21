@@ -43,7 +43,7 @@ describe('POST /task', () => {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
 
-                expect(res.body).to.deep.equal({result: 4});
+                expect(res.body.result).to.equal(4);
 
                 done();
             });
@@ -60,7 +60,7 @@ describe('POST /task', () => {
                 expect(err).to.be.null;
                 expect(res).to.have.status(200);
 
-                expect(res.body).to.deep.equal({result: 'Hello World!'});
+                expect(res.body.result).to.equal('Hello World!');
 
                 done();
             });
