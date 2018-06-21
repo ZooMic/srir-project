@@ -10,6 +10,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const incomingCodeValidator = require('./incoming-code-validator');
+const arch = require('./archive');
+const archiveCode = arch.archiveCode;
+const createDiff = arch.createDiff;
 
 const app = express();
 const port = 8000;
@@ -45,8 +48,12 @@ app.post('/task', (req, res) => {
 
 	if (success) {
 		const result = !!body && performTask(body);
+		archiveCode(task);
+		const comparison = createDiff();
+
 		res.status(200)
-			.json({result});
+			.json({ result, comparison });
+		
 	} else {
 		res.status(400)
 			.json({result: message});

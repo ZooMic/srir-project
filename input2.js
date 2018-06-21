@@ -7,10 +7,11 @@
 
 const fibonacci = number => {
     let a = 1, b = 0, t;
-    for (let i = 0; i < number; i++) {
+    while(number > 0) {
         t = a;
         a = a + b;
         b = t;
+        number--;
     }
     return b;
 };
