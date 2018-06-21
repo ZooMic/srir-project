@@ -1,16 +1,14 @@
 const fs = require('fs');
 const jsdiff = require('diff');
 
-const archivePath = "./archives.json";
-
-const archiveCode = code => {
+const archiveCode = (code, archivePath) => {
     const archivesFile = fs.readFileSync(archivePath, 'utf8');
     const archives = JSON.parse(archivesFile);
     archives.push(code);
     fs.writeFileSync(archivePath, JSON.stringify(archives));
 }
 
-const createDiff = () => {
+const createDiff = archivePath => {
     const archivesFile = fs.readFileSync(archivePath, 'utf8');
     
     const archives = JSON.parse(archivesFile);
